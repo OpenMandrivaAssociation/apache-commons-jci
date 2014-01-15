@@ -1,0 +1,105 @@
+diff -Nru commons-jci-1.0-src/compilers/eclipse/pom.xml commons-jci-1.0-src-gil/compilers/eclipse/pom.xml
+--- commons-jci-1.0-src/compilers/eclipse/pom.xml	2007-06-14 22:23:17.000000000 +0200
++++ commons-jci-1.0-src-gil/compilers/eclipse/pom.xml	2012-04-06 21:32:41.304745296 +0200
+@@ -22,6 +22,7 @@
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-jci</artifactId>
+         <version>1.0</version>
++        <relativePath>../../pom.xml</relativePath>
+     </parent>
+     <packaging>jar</packaging>
+     <artifactId>commons-jci-eclipse</artifactId>
+diff -Nru commons-jci-1.0-src/compilers/groovy/pom.xml commons-jci-1.0-src-gil/compilers/groovy/pom.xml
+--- commons-jci-1.0-src/compilers/groovy/pom.xml	2007-06-14 22:23:17.000000000 +0200
++++ commons-jci-1.0-src-gil/compilers/groovy/pom.xml	2012-04-06 21:34:35.059747993 +0200
+@@ -22,6 +22,7 @@
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-jci</artifactId>
+         <version>1.0</version>
++        <relativePath>../../pom.xml</relativePath>
+     </parent>
+     <packaging>jar</packaging>
+     <artifactId>commons-jci-groovy</artifactId>
+@@ -50,9 +51,9 @@
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+-            <groupId>groovy</groupId>
+-            <artifactId>groovy-all</artifactId>
+-            <version>1.0-jsr-03</version>
++            <groupId>org.codehaus.groovy</groupId>
++            <artifactId>groovy</artifactId>
++            <version>1.8.6</version>
+         </dependency>
+     </dependencies>
+ </project>
+diff -Nru commons-jci-1.0-src/compilers/janino/pom.xml commons-jci-1.0-src-gil/compilers/janino/pom.xml
+--- commons-jci-1.0-src/compilers/janino/pom.xml	2007-06-14 22:23:18.000000000 +0200
++++ commons-jci-1.0-src-gil/compilers/janino/pom.xml	2012-04-06 21:35:48.373749732 +0200
+@@ -22,6 +22,7 @@
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-jci</artifactId>
+         <version>1.0</version>
++        <relativePath>../../pom.xml</relativePath>
+     </parent>
+     <packaging>jar</packaging>
+     <artifactId>commons-jci-janino</artifactId>
+@@ -50,9 +51,14 @@
+             <scope>test</scope>
+         </dependency>
+         <dependency>
+-            <groupId>janino</groupId>
++            <groupId>org.codehaus.janino</groupId>
+             <artifactId>janino</artifactId>
+             <version>2.4.3</version>
+         </dependency>
++        <dependency>
++            <groupId>org.codehaus.janino</groupId>
++            <artifactId>commons-compiler</artifactId>
++            <version>2.4.3</version>
++        </dependency>
+     </dependencies>
+ </project>
+diff -Nru commons-jci-1.0-src/compilers/javac/pom.xml commons-jci-1.0-src-gil/compilers/javac/pom.xml
+--- commons-jci-1.0-src/compilers/javac/pom.xml	2007-06-14 22:23:17.000000000 +0200
++++ commons-jci-1.0-src-gil/compilers/javac/pom.xml	2012-04-06 21:36:21.952750528 +0200
+@@ -22,6 +22,7 @@
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-jci</artifactId>
+         <version>1.0</version>
++        <relativePath>../../pom.xml</relativePath>
+     </parent>
+     <packaging>jar</packaging>
+     <artifactId>commons-jci-javac</artifactId>
+diff -Nru commons-jci-1.0-src/compilers/rhino/pom.xml commons-jci-1.0-src-gil/compilers/rhino/pom.xml
+--- commons-jci-1.0-src/compilers/rhino/pom.xml	2007-06-14 22:23:16.000000000 +0200
++++ commons-jci-1.0-src-gil/compilers/rhino/pom.xml	2012-04-06 21:37:22.780751971 +0200
+@@ -22,6 +22,7 @@
+         <groupId>org.apache.commons</groupId>
+         <artifactId>commons-jci</artifactId>
+         <version>1.0</version>
++        <relativePath>../../pom.xml</relativePath>
+     </parent>
+     <packaging>jar</packaging>
+     <artifactId>commons-jci-rhino</artifactId>
+diff -Nru commons-jci-1.0-src/pom.xml commons-jci-1.0-src-gil/pom.xml
+--- commons-jci-1.0-src/pom.xml	2007-06-14 22:23:18.000000000 +0200
++++ commons-jci-1.0-src-gil/pom.xml	2012-04-06 21:40:11.741755978 +0200
+@@ -128,7 +128,7 @@
+                 <artifactId>cobertura-maven-plugin</artifactId>
+                 <version>2.0</version>
+             </plugin>
+-            <plugin>
++            <!--plugin>
+                 <groupId>org.codehaus.mojo</groupId>
+                 <artifactId>findbugs-maven-plugin</artifactId>
+                 <version>1.0.0</version>
+@@ -146,7 +146,7 @@
+                     </tags>
+                     <aggregate>true</aggregate>
+                 </configuration>
+-            </plugin>
++            </plugin-->
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-surefire-report-plugin</artifactId>
