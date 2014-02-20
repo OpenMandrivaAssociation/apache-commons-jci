@@ -50,6 +50,10 @@ BuildRequires: rhino
 BuildRequires: apache-commons-lang
 BuildRequires: junit
 BuildRequires: objectweb-asm
+%if 0%{?fedora}
+%else
+BuildRequires: mvn(org.eclipse.jdt:core)
+%endif
 
 Requires:      %{name}-core = %{version}-%{release}
 BuildArch:     noarch
