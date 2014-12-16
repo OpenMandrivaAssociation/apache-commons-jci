@@ -6,8 +6,9 @@
 
 Name:          apache-commons-jci
 Version:       1.0
-Release:       10.0%{?dist}
+Release:       13.1
 Summary:       Commons Java Compiler Interface
+Group:		Development/Java
 License:       ASL 2.0
 URL:           http://commons.apache.org/jci/
 Source0:       ftp://ftp.gbnet.net/pub/apache/dist/commons/%{base_name}/source/%{short_name}-%{namedversion}-src.tar.gz
@@ -37,19 +38,20 @@ BuildRequires: maven-antrun-plugin
 BuildRequires: maven-plugin-bundle
 BuildRequires: maven-plugin-cobertura
 BuildRequires: maven-site-plugin
-BuildRequires: maven-surefire-provider-junit4
+BuildRequires: maven-surefire-provider-junit
 
-BuildRequires: apache-commons-logging
-BuildRequires: apache-commons-io
 BuildRequires: ecj >= 3.4.2-13
-BuildRequires: groovy
-BuildRequires: janino
-BuildRequires: rhino
+BuildRequires: mvn(commons-logging:commons-logging-api)
+BuildRequires: mvn(commons-io:commons-io)
+BuildRequires: mvn(org.codehaus.groovy:groovy)
+BuildRequires: mvn(org.codehaus.janino:commons-compiler)
+BuildRequires: mvn(org.codehaus.janino:janino)
+BuildRequires: mvn(rhino:js)
 
 # test deps
-BuildRequires: apache-commons-lang
-BuildRequires: junit
-BuildRequires: objectweb-asm
+BuildRequires: mvn(commons-lang:commons-lang)
+BuildRequires: mvn(junit:junit)
+BuildRequires: objectweb-asm3
 %if 0%{?fedora}
 %else
 BuildRequires: mvn(org.eclipse.jdt:core)
@@ -153,14 +155,8 @@ sed -i "s|<maven.compile.target>1.4<|<maven.compile.target>1.5<|" pom.xml
 %install
 %mvn_install
 
-%files
+%files -f .mfiles-%{short_name}
 %dir %{_javadir}/%{short_name}
-%{_mavendepmapfragdir}/apache-commons-jci-commons-jci.xml
-%if 0%{?fedora}
-%{_mavenpomdir}/JPP.apache-commons-jci-org.apache.commons@commons-jci.pom
-%else
-%{_mavenpomdir}/JPP.apache-commons-jci-commons-jci.pom
-%endif
 %doc LICENSE.txt NOTICE.txt README.txt TODO.txt
 
 %files core -f .mfiles-%{short_name}-core
