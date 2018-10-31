@@ -6,7 +6,7 @@
 
 Name:          apache-commons-jci
 Version:       1.0
-Release:       13.2
+Release:       13.3
 Summary:       Commons Java Compiler Interface
 Group:		Development/Java
 License:       ASL 2.0
