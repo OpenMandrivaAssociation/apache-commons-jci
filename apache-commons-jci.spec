@@ -10,7 +10,7 @@ Release:       13.3
 Summary:       Commons Java Compiler Interface
 Group:		Development/Java
 License:       ASL 2.0
-URL:           http://commons.apache.org/jci/
+URL:           https://commons.apache.org/jci/
 Source0:       ftp://ftp.gbnet.net/pub/apache/dist/commons/%{base_name}/source/%{short_name}-%{namedversion}-src.tar.gz
 # force ecj 4.x use
 Source1:       %{name}-%{namedversion}-depmap
